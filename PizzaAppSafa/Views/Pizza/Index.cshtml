@@ -1,0 +1,51 @@
+﻿<!--SafaAtout-->
+<!--991620668-->
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PizzaAppSafa.Models.PizzaOrder
+
+@{
+    ViewData["Title"] = "Pizza Order";
+}
+<h2 class="text-center mt-4 text-danger fw-bold">@ViewBag.Message</h2>
+<p class="text-center text-muted">Please fill out the form below to order your delicious pizza 🍕</p>
+
+<h2 class="text-center mt-4">🍕 Order Your Pizza</h2>
+
+<div class="text-center mb-4">
+    <img src="~/images/Pizza.jpg" alt="Pizza" class="img-fluid rounded shadow" style="max-width:300px;">
+</div>
+
+<form asp-action="Receipt" method="post" class="p-4 border rounded bg-light">
+    <div class="mb-3">
+        <label asp-for="CustomerName" class="form-label">Your Name</label>
+        <input asp-for="CustomerName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pizza Type</label>
+        <select asp-for="PizzaType" class="form-select">
+            <option>Plain</option>
+            <option>Crispy</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pizza Size</label>
+        <select asp-for="Size" class="form-select">
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quantity" class="form-label">Quantity</label>
+        <input asp-for="Quantity" type="number" class="form-control" min="1" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Place Order</button>
+</form>
