@@ -1,0 +1,42 @@
+﻿<!--SafaAtout-->
+<!--991620668-->
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model PizzaAppSafa.Models.PizzaReceipt
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<h2 class="mt-4 text-center text-danger fw-bold">🧾 Your Receipt</h2>
+
+<!-- Image -->
+<div class="text-center mb-3">
+    <img src="~/images/Pizzatopping.jpg" alt="Pizza"
+         class="img-fluid rounded-circle shadow-sm"
+         style="width:200px;">
+</div>
+
+<!-- Receipt Card -->
+<div class="card shadow p-4 mt-3 mx-auto" style="max-width: 500px;">
+    <p><strong>Customer:</strong> @Model.CustomerName</p>
+    <p><strong>Pizza:</strong> @Model.PizzaType (@Model.Size)</p>
+    <p><strong>Quantity:</strong> @Model.Quantity</p>
+    <p><strong>Price per item:</strong> $@Model.PricePerItem.ToString("0.00")</p>
+    <p><strong>Subtotal:</strong> $@Model.Subtotal.ToString("0.00")</p>
+    <p><strong>Discount:</strong> $@Model.Discount.ToString("0.00")</p>
+    <p><strong>Tax (13% HST):</strong> $@Model.Tax.ToString("0.00")</p>
+
+    <hr />
+    <h4 class="text-end text-success">
+        <strong>Total:</strong> $@Model.Total.ToString("0.00")
+    </h4>
+</div>
+
+<!-- Buttons and message -->
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary px-4">Back to Order Page</a>
+    <p class="text-muted mt-3">Thank you for ordering with Safa’s Pizza Corner! 🍕</p>
+</div>
